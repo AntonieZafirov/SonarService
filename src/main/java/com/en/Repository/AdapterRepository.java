@@ -8,5 +8,5 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by azafirov on 10/25/2016.
  */
 @Transactional
-public interface AdapterDao extends JpaRepository<AdapterEntity, Long> {
+public interface AdapterRepository extends JpaRepository<AdapterEntity, Long> {
 }

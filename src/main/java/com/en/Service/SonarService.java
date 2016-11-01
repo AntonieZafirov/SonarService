@@ -1,7 +1,7 @@
 package com.en.Service;
 
 import com.en.Entity.WidgetEntity;
-import com.en.Repository.WidgetDao;
+import com.en.Repository.WidgetRepository;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,16 +22,11 @@ import java.net.URL;
 public class SonarService {
 
     @Autowired
-    WidgetDao widgetDao;
+    WidgetRepository widgetRepository;
 
     public String getResponse(Long widgetId)
     {
-        WidgetEntity widget = widgetDao.findOne(widgetId);
-        return getResponse(widget);
-    }
-
-    public String getResponse(WidgetEntity widget)
-    {
+        WidgetEntity widget = widgetRepository.findOne(widgetId);
         String response = new String();
         String urlString = widget.getAdapter().getUrl() + widget.getAdapter().getApiPath() + widget.getCallUrl();
         System.out.println(urlString);
@@ -65,5 +60,4 @@ public class SonarService {
         }
         return response;
     }
-
 }

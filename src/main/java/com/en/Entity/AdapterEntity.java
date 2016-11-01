@@ -1,5 +1,4 @@
 package com.en.Entity;
-
 import javax.persistence.*;
 
 /**
@@ -7,7 +6,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "Adapter")
-public class AdapterEntity {
+public class AdapterEntity{
 
     private Long id;
 

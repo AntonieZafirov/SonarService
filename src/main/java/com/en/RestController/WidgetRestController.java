@@ -1,11 +1,13 @@
 package com.en.RestController;
 
 import com.en.Entity.WidgetEntity;
-import com.en.Repository.WidgetDao;
+import com.en.Repository.WidgetRepository;
 import com.en.Service.SonarService;
+import com.en.ServiceResponseModels.WidgetServiceResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,14 +22,19 @@ import java.util.List;
 public class WidgetRestController {
 
     @Autowired
-    WidgetDao widgetDao;
+    WidgetRepository widgetRepository;
 
     @Autowired
     SonarService sonarService;
 
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    public List<WidgetEntity> getAllWidgets(){
+//        return widgetRepository.findAll();
+//    }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<WidgetEntity> getAllWidgets(){
-        return widgetDao.findAll();
+    public List<WidgetServiceResponseModel> getAllWidgets(){
+        return doMapping(widgetRepository.findAll());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -44,9 +51,12 @@ public class WidgetRestController {
         }
     }
 
-    @RequestMapping("/")
-    public String widgetTestCall(@RequestBody WidgetEntity widgetEntity){
-        return sonarService.getResponse(widgetEntity);
+    private List<WidgetServiceResponseModel> doMapping(List<WidgetEntity> widgetEntities){
+        List<WidgetServiceResponseModel> widgetServiceResponseModels = new ArrayList<WidgetServiceResponseModel>();
+        for(WidgetEntity w: widgetEntities){
+            widgetServiceResponseModels.add(new WidgetServiceResponseModel(w));
+        }
+        return widgetServiceResponseModels;
     }
 
 }

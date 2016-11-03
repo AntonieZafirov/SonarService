@@ -3,11 +3,9 @@ package com.en.RestController;
 import com.en.Entity.WidgetEntity;
 import com.en.Repository.WidgetRepository;
 import com.en.Service.SonarService;
-import com.en.ServiceResponseModels.WidgetServiceResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,14 +25,9 @@ public class WidgetRestController {
     @Autowired
     SonarService sonarService;
 
-//    @RequestMapping(value = "/", method = RequestMethod.GET)
-//    public List<WidgetEntity> getAllWidgets(){
-//        return widgetRepository.findAll();
-//    }
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<WidgetServiceResponseModel> getAllWidgets(){
-        return doMapping(widgetRepository.findAll());
+    public List<WidgetEntity> getAllWidgets(){
+        return widgetRepository.findAll();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -50,13 +43,4 @@ public class WidgetRestController {
             return  "ERROR:Widget with undefined index: " + widgetId;
         }
     }
-
-    private List<WidgetServiceResponseModel> doMapping(List<WidgetEntity> widgetEntities){
-        List<WidgetServiceResponseModel> widgetServiceResponseModels = new ArrayList<WidgetServiceResponseModel>();
-        for(WidgetEntity w: widgetEntities){
-            widgetServiceResponseModels.add(new WidgetServiceResponseModel(w));
-        }
-        return widgetServiceResponseModels;
-    }
-
 }

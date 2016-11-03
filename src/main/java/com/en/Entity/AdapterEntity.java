@@ -1,4 +1,6 @@
 package com.en.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -14,14 +16,19 @@ public class AdapterEntity{
 
     private String url;
 
+    @JsonIgnore
     private String apiPath;
 
+    @JsonIgnore
     private Boolean useCredantials;
 
+    @JsonIgnore
     private String userName;
 
+    @JsonIgnore
     private String password;
 
+    @JsonIgnore
     private IntegrationServiceEntity integrationServiceEntity;
 
     @Id

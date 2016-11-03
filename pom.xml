@@ -45,29 +45,29 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		<!--eureka-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-eureka</artifactId>-->
-		<!--</dependency>-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-eureka-server</artifactId>-->
-			<!--<scope>test</scope>-->
-		<!--</dependency>-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka-server</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<!--/eureka-->
 	</dependencies>
 	<!--eureka-->
-	<!--<dependencyManagement>-->
-		<!--<dependencies>-->
-			<!--<dependency>-->
-				<!--<groupId>org.springframework.cloud</groupId>-->
-				<!--<artifactId>spring-cloud-dependencies</artifactId>-->
-				<!--<version>Brixton.SR5</version>-->
-				<!--<type>pom</type>-->
-				<!--<scope>import</scope>-->
-			<!--</dependency>-->
-		<!--</dependencies>-->
-	<!--</dependencyManagement>-->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Brixton.SR5</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<!--/eureka-->
 	<build>
 		<plugins>

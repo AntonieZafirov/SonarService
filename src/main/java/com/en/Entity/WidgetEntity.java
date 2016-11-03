@@ -1,5 +1,7 @@
 package com.en.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -15,6 +17,7 @@ public class WidgetEntity {
 
     private AdapterEntity adapter;
 
+    @JsonIgnore
     private String callUrl;
 
     private String description;
